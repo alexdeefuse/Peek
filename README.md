@@ -8,7 +8,6 @@ Its as simple as:
 
 ```javascript
 var r = new Peek();
-
 r.url('http://google.com');
 r.run(function(err, content){
 	
