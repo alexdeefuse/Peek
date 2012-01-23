@@ -6,7 +6,8 @@
 	"keywords"			: "http, request, html, grab, capture",
 	"dependencies"		: {},
 	"devDependencies"	: {
-		"mocha"	: "*"
+		"mocha"	: "*",
+		"should": "*"
 	},
 	"scripts"			: {
 		"test"	: "make test"
