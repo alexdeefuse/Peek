@@ -21,7 +21,7 @@ describe('Request', function(){
 	});
 	
 	it('should allow url to be passed to the contructor', function(done){
-		var url = 'http://google.com';
+		var url = 'http://google.co';
 		
 		var r = new Request(url);
 		should.exist( r.url() );
@@ -42,6 +42,16 @@ describe('Request', function(){
 		var headers_number = _.size( r.headers() );
 		headers_number.should.be.above(0);
 		done();
-	})
+	});
+	
+	it('should have a run method', function(done){
+		var r = new Request();
+		
+		r.should.have.property('run');
+		should.strictEqual( typeof r.run, 'function' );
+		done();
+	});
+	
+	
 	
 })
