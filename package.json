@@ -14,6 +14,6 @@
 	"main"				: "./peek.js",
 	"repository"		: {
 		"type"	: "git",
-		"url"	: ""
+		"url"	: "git://github.com/alexdeefuse/Peek.git"
 	}
 }
