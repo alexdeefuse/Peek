@@ -12,7 +12,7 @@ var url				= require('url');
  *	constructor & inheritance
  */
 
-function Request(url){
+function Peek(url){
 	if( typeof url !== 'undefined' ){
 		this.url(url);
 	}
@@ -22,9 +22,9 @@ function Request(url){
  *	url property
  */
 
-Request.prototype._url;
+Peek.prototype._url;
 
-Request.prototype.url = function(val){
+Peek.prototype.url = function(val){
 	if( val === undefined ){
 		return this._url;
 	}
@@ -36,7 +36,7 @@ Request.prototype.url = function(val){
  *	headers property
  */
 
-Request.prototype._headers = {
+Peek.prototype._headers = {
 	'connection'		: 'keep-alive',
 	'cache-control'		: 'no-cache',
 	'pragma'			: 'no-cache',
@@ -47,7 +47,7 @@ Request.prototype._headers = {
 	'accept-charset'	: 'ISO-8859-1,utf-8;q=0.7,*;q=0.3'
 };
 
-Request.prototype.headers = function(val){
+Peek.prototype.headers = function(val){
 	if( val === undefined ){
 		return this._headers;
 	}
@@ -59,12 +59,12 @@ Request.prototype.headers = function(val){
  *	method property
  */
 
-Request.GET		= 'GET';
-Request.POST	= 'POST';
+Peek.GET		= 'GET';
+Peek.POST		= 'POST';
 
-Request.prototype._method = Request.GET;
+Peek.prototype._method = Peek.GET;
 
-Request.prototype.method = function(val){
+Peek.prototype.method = function(val){
 	if( val === undefined ){
 		return this._method;
 	}
@@ -76,7 +76,7 @@ Request.prototype.method = function(val){
  *	run
  */
 
-Request.prototype.run = function(callback){
+Peek.prototype.run = function(callback){
 	var url = this.url();
 	
 	if( !url ){
@@ -128,4 +128,4 @@ Request.prototype.run = function(callback){
 	}
 }
 
-module.exports = Request;
+module.exports = Peek;

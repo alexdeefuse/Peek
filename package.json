@@ -1,0 +1,19 @@
+{
+	"name"				: "Peek",
+	"description"		: "Simple http grabber",
+	"version"			: "0.1",
+	"author"			: "Alex Ghiu <alex@deefuse.com>",
+	"keywords"			: "http, request, html, grab, capture",
+	"dependencies"		: {},
+	"devDependencies"	: {
+		"mocha"	: "*"
+	},
+	"scripts"			: {
+		"test"	: "make test"
+	},
+	"main"				: "./peek.js",
+	"repository"		: {
+		"type"	: "git",
+		"url"	: ""
+	}
+}
