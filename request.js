@@ -63,6 +63,23 @@ Request.prototype.headers = function(val){
 }
 
 /**
+ *	method property
+ */
+
+Request.GET		= 'GET';
+Request.POST	= 'POST';
+
+Request.prototype._method = Request.GET;
+
+Request.prototype.method = function(val){
+	if( val === undefined ){
+		return this._method;
+	}
+	
+	this._method = val;
+}
+
+/**
  *	run
  */
 
@@ -96,7 +113,9 @@ Request.prototype.run = function(callback){
 		
 		req.on('error', function(err){
 			callback(err);
-		})
+		});
+		
+		req.end();
 		
 	}
 }
