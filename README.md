@@ -14,6 +14,14 @@ r.run(function(err, content){
 });
 ```
 
+## Running the tests
+
+To test run:
+
+```
+$ make test
+```
+
 ## License
 
 Copyright (c) 2010-2011 Deefuse &lt;alex@deefuse.com&gt;
