@@ -72,4 +72,15 @@ describe('Request', function(){
 		});
 	});
 	
+	it('should received page contents on success', function(done){
+		var r = new Request();
+		
+		r.url('http://google.com');
+		r.run(function(err, content){
+			should.not.exist(err);
+			should.exist(content);
+			done();
+		});	
+	})
+	
 })
