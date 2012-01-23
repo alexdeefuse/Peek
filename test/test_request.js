@@ -108,6 +108,6 @@ describe('Request', function(){
 			should.exist(content);
 			done();
 		});	
-	})
+	});
 	
 })

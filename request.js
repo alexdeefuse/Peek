@@ -130,7 +130,8 @@ Request.prototype.run = function(callback){
 		req.end();
 		
 		// cleanup
-		req = null;
+		req		= null;
+		options	= null;
 	}
 }
 
