@@ -1,6 +1,5 @@
 var should			= require('should');
 var util			= require('util');
-var _				= require('underscore');
 
 var Request			= require('../request');
 var EventEmitter	= require('events').EventEmitter;
@@ -32,9 +31,17 @@ describe('Request', function(){
 	
 	it('should have default headers', function(done){
 		var r = new Request();
+		var headers = r.headers();
+		var c = 0;
 		
-		var headers_number = _.size( r.headers() );
-		headers_number.should.be.above(0);
+		for(var k in headers){
+			if(c >= 1){
+				break;
+			}
+			c++;
+		}
+		
+		c.should.be.above(0);
 		done();
 	});
 	
