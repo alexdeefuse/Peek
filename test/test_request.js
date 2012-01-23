@@ -7,12 +7,6 @@ var EventEmitter	= require('events').EventEmitter;
 
 describe('Request', function(){
 	
-	it('should be able to emit events', function(done){
-		var r = new Request();
-		r.should.be.an.instanceof(EventEmitter);
-		done();
-	});
-	
 	it('should accept an url attribute', function(done){
 		var r = new Request();
 		
@@ -108,6 +102,48 @@ describe('Request', function(){
 			should.exist(content);
 			done();
 		});	
+	});
+	
+	it('should be able to reuse the request', function(done){
+		var r = new Request();
+		r.url('http://google.com');
+		r.run(function(err1, content1){
+			should.not.exist(err1);
+			should.exist(content1);
+			
+			r.url('http://yahoo.com');
+			r.run(function(err2, content2){
+				should.not.exist(err2);
+				should.exist(content2);
+				
+				content1.should.not.eql(content2);
+				
+				done();
+			});
+		})
+	});
+	
+	it('should be able to run request simultainously', function(done){
+		var c = 0;
+		
+		var r1 = new Request('http://google.com');
+		r1.run(check);
+		
+		var r2 = new Request('http://yahoo.com');
+		r2.run(check);
+		
+		function check(err, content){
+			should.not.exist(err);
+			
+			c++;
+			
+			should.exist(content);
+			
+			if(c === 2){
+				done();
+			}
+		}
+		
 	});
 	
 })
