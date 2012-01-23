@@ -5,9 +5,6 @@
  *
  */
 
-var EventEmitter	= require('events').EventEmitter;
-var _				= require('underscore');
-var util			= require('util');
 var http			= require('http');
 var url				= require('url');
 
@@ -16,14 +13,10 @@ var url				= require('url');
  */
 
 function Request(url){
-	EventEmitter.call(this);
-	
 	if( typeof url !== 'undefined' ){
 		this.url(url);
 	}
 };
-
-util.inherits( Request, EventEmitter );
 
 /**
  *	url property
@@ -134,6 +127,5 @@ Request.prototype.run = function(callback){
 		options	= null;
 	}
 }
-
 
 module.exports = Request;
