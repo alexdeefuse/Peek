@@ -67,13 +67,36 @@ Request.prototype.headers = function(val){
  */
 
 Request.prototype.run = function(callback){
-	if( !this.url() ){
-		callback( new Error('No url given') );
+	var url = this.url();
+	
+	if( !url ){
+		callback( new Error('no url') );
 	}else{
 		
-		url.parse( this.url() )
+		var options = {
+			'host'		: url.host,
+			'port'		: 80,
+			'path'		: url.path,
+			'method'	: 'GET',
+			
+			'headers'	: this.headers(),
+		};
 		
-		http.request(  )
+		url = null;
+		
+		var req = http.request( options, function(res){
+			res.setEncoding('utf8');
+			res.on('data', function(chunk){
+				callback(null, chunk);
+			});
+			res.on('error', function(err){
+				callback(err);
+			})
+		} );
+		
+		req.on('error', function(err){
+			callback(err);
+		})
 		
 	}
 }
