@@ -8,6 +8,8 @@
 var EventEmitter	= require('events').EventEmitter;
 var _				= require('underscore');
 var util			= require('util');
+var http			= require('http');
+var url				= require('url');
 
 /**
  *	constructor & inheritance
@@ -16,7 +18,7 @@ var util			= require('util');
 function Request(url){
 	EventEmitter.call(this);
 	
-	if(typeof url !== 'undefined'){
+	if( typeof url !== 'undefined' ){
 		this.url(url);
 	}
 };
@@ -30,11 +32,11 @@ util.inherits( Request, EventEmitter );
 Request.prototype._url;
 
 Request.prototype.url = function(val){
-	if(val === undefined){
+	if( val === undefined ){
 		return this._url;
 	}
 	
-	this._url = val;
+	this._url = url.parse( val, true, true );
 }
 
 /**
@@ -53,11 +55,27 @@ Request.prototype._headers = {
 };
 
 Request.prototype.headers = function(val){
-	if(val === undefined){
+	if( val === undefined ){
 		return this._headers;
 	}
 	
 	this._headers = val;
+}
+
+/**
+ *	run
+ */
+
+Request.prototype.run = function(callback){
+	if( !this.url() ){
+		callback( new Error('No url given') );
+	}else{
+		
+		url.parse( this.url() )
+		
+		http.request(  )
+		
+	}
 }
 
 
