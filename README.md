@@ -2,7 +2,7 @@ Peek
 
 ## What's Peek?
 
-Simple http grabber. Can be used for grabbing html, xml, json, js, css and pretty much anything text based.
+Simple http grabber for NodeJs. Can be used for grabbing html, xml, json, js, css and pretty much anything text based.
 
 Its as simple as:
 
