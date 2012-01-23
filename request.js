@@ -94,7 +94,7 @@ Request.prototype.run = function(callback){
 			'host'		: url.host,
 			'port'		: 80,
 			'path'		: url.path,
-			'method'	: 'GET',
+			'method'	: this.method(),
 			
 			'headers'	: this.headers(),
 		};

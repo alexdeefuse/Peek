@@ -44,6 +44,34 @@ describe('Request', function(){
 		done();
 	});
 	
+	it('should have method attribute', function(done){
+		var r = new Request();
+		
+		r.should.have.property('method');
+		done();
+	});
+	
+	it('should have static method constants', function(done){
+		Request.should.have.property('GET');
+		Request.should.have.property('POST');
+		done();
+	});
+	
+	it('should have default method of GET', function(done){
+		var r = new Request();
+		
+		should.strictEqual( r.method(), Request.GET );
+		done();
+	});
+	
+	it('should change method value from default', function(done){
+		var r = new Request();
+		r.method( Request.POST );
+		
+		should.strictEqual( r.method(), Request.POST );
+		done();
+	});
+	
 	it('should have a run method', function(done){
 		var r = new Request();
 		
@@ -59,7 +87,6 @@ describe('Request', function(){
 			should.exist(err);
 			done();
 		})
-		
 	});
 	
 	it('should receive error if any host, dns, page error', function(done){
