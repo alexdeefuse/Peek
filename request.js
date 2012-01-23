@@ -99,24 +99,38 @@ Request.prototype.run = function(callback){
 			'headers'	: this.headers(),
 		};
 		
-		url = null;
+		// cleanup
+		url = null; 
 		
 		var req = http.request( options, function(res){
 			res.setEncoding('utf8');
 			res.on('data', function(chunk){
 				callback(null, chunk);
+				
+				// cleanup
+				chunk = null;
+				
 			});
 			res.on('error', function(err){
 				callback(err);
+				
+				// cleanup
+				err = null;
 			})
+			
+			// cleanup
+			res = null; 
 		} );
 		
 		req.on('error', function(err){
 			callback(err);
+		
 		});
 		
 		req.end();
 		
+		// cleanup
+		req = null;
 	}
 }
 
