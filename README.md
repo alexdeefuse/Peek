@@ -14,6 +14,22 @@ r.run(function(err, content){
 });
 ```
 
+## Installation
+
+Using [NPM](http://www.npmjs.org/):
+
+```
+$ npm install Peek
+```
+
+Or using Git:
+
+```
+$ git clone git://github.com/alexdeefuse/Peek.git node_modules/Peek
+```
+
+Then install module dependencies.
+
 ## Running the tests
 
 To test run:
