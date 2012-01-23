@@ -52,6 +52,24 @@ describe('Request', function(){
 		done();
 	});
 	
+	it('should receive error if runned without url', function(done){
+		var r = new Request();
+		
+		r.run(function(err){
+			should.exist(err);
+			done();
+		})
+		
+	});
 	
+	it('should receive error if any host, dns, page error', function(done){
+		var r = new Request();
+		
+		r.url('http://cucumuculucu');
+		r.run(function(err){
+			should.exist(err);
+			done();
+		});
+	});
 	
 })
