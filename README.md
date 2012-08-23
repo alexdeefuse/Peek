@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/alexdeefuse/Peek.png)](http://travis-ci.org/alexdeefuse/Peek)
 Peek
 
 ## What's Peek?
